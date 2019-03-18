@@ -1,0 +1,2 @@
+Traffic management rules apply only at service to service communication inside cluster.
+If request is coming from API gateway i.e north-south traffic these policy do not apply

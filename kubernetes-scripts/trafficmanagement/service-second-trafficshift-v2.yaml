@@ -1,0 +1,19 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: shift.rule.service.second
+spec:
+  hosts:
+    - service-second
+  http:
+    - route:
+        - destination:
+            host: service-second
+            subset: v1
+          weight: 25
+        - destination:
+            host: service-second
+            subset: v2
+          weight: 75
+---

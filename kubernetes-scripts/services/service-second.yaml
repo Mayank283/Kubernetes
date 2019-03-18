@@ -1,0 +1,27 @@
+#Instruction for k8s service for second micro-service
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-second
+  labels:
+    app: service-second
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v1
+      kind:  Mapping
+      name:  gateway.registry.service.second
+      prefix: /prgx/service/second/
+      service: service-second:8021
+      timeout_ms: 10000
+spec:
+  selector:
+    app: pod.micro.second
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8021
+      protocol: TCP
+---
