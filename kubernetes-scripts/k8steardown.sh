@@ -14,14 +14,16 @@ echo -e "\n----Cleaning up second micro-service with side-proxy----"
 kubectl delete -f service-second.yaml
 
 cd ../deployments/
-echo -e "\n----Cleaning up deployments and pods for first micro-service----"
+echo -e "\n----Cleaning up deployments and pods for first micro-service v1----"
 kubectl delete -f deployment-microone-v1.yaml
-echo -e "\n----Cleaning up deployments and pods for second micro-service----"
+echo -e "\n----Cleaning up deployments and pods for second micro-service v1----"
 kubectl delete -f deployment-microtwo-v1.yaml
+echo -e "\n----Cleaning up deployments and pods for second micro-service v2----"
+kubectl delete -f deployment-microtwo-v2.yaml
 
 
 cd ../trafficmanagement/
 echo -e "\n----Cleaning up circuit breaker rule for first micro-service----"
-kubectl delete -f service-first-destination-rule.yaml
+kubectl delete -f service-second-circuit-breaker.yaml
 echo -e "\n----Cleaning up circuit breaker rule for second micro-service----"
-kubectl delete -f service-second-destination-rule.yaml
+kubectl delete -f service-second-trafficshift-v2.yaml

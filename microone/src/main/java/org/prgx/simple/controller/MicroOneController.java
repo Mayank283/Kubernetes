@@ -39,7 +39,7 @@ public class MicroOneController
     public String getHelloMessage()
     {
         logger.info("Service first method getHelloMessage");
-        return "Hello from first microservice v2";
+        return "Hello from first microservice v1";
     }
 
     @GetMapping("/firstgreetsecond")

@@ -30,6 +30,6 @@ public class MicroTwoController
     public String getHelloMessage()
     {
         logger.info("Service second method getHelloMessage");
-        return "Hello from MicroTwo v2";
+        return "Hello from MicroTwo v1";
     }
 }
